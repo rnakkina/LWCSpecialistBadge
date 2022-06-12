@@ -1,23 +1,30 @@
 import { LightningElement } from 'lwc';
-import {NavigationMixin} from 'lightning/navigation'
-
-
-export default class BoatSearch extends LightningElement {
+import {NavigationMixin} from 'lightning/navigation';
+export default class BoatSearch extends NavigationMixin(LightningElement) {
     isLoading = false;
     boatTypeId
     // Handles loading event
-    handleLoading() {
-        
+    handleLoading(event) {
+        if(event)
+        {
+            this.isLoading=true;
+        }
      }
     
     // Handles done loading event
-    handleDoneLoading() { }
+    handleDoneLoading(event) { 
+        if(event)
+        {
+            this.isLoading=false;
+        }
+    }
     
     // Handles search boat event
     // This custom event comes from the form
     searchBoats(event) {
         this.boatTypeId = event.detail.boatTypeId
         this.template.querySelector('c-boat-search-results').searchBoats(this.boatTypeId);
+        this.handleDoneLoading();
      }
     
     createNewBoat() {

@@ -2,8 +2,10 @@ import { LightningElement, api } from 'lwc';
 const TILE_WRAPPER_UNSELECTED_CLASS = 'tile-wrapper';
 const TILE_WRAPPER_SELECTED_CLASS = 'tile-wrapper selected';
 export default class BoatTile extends LightningElement {
-    @api boat;
-    @api selectedBoatId;
+    @api 
+    boat;
+    @api 
+    selectedBoatId;
 
     // Getter for dynamically setting the background image for the picture
     get backgroundStyle() { 
@@ -16,9 +18,9 @@ export default class BoatTile extends LightningElement {
 
         if(this.boat.Id === this.selectedBoatId)
         {
-            return this.TILE_WRAPPER_SELECTED_CLASS;
+            return TILE_WRAPPER_SELECTED_CLASS;
         }
-           return this.TILE_WRAPPER_UNSELECTED_CLASS;
+           return TILE_WRAPPER_UNSELECTED_CLASS;
         
      }
     
