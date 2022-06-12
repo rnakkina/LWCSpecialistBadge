@@ -23,13 +23,16 @@ searchOptions;
 }
   // Fires event that the search option has changed.
   // passes boatTypeId (value of this.selectedBoatTypeId) in the detail
-  handleSearchOptionChange() {
+  handleSearchOptionChange(event) {
     // Create the const searchEvent
     // searchEvent must be the new custom event search
+    this.selectedBoatTypeId = event.detail.value
     const searchEvent= new CustomEvent('search',{
-        detail:this.selectedBoatTypeId
+        detail:
+        {boatTypeId: this.selectedBoatTypeId}
     });
     this.dispatchEvent(searchEvent);
+    
   }
 
 }

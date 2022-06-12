@@ -6,7 +6,7 @@
           <!-- New Boat button goes here -->
           <lightning-button label="New Boat" onclick={createNewBoat} slot="actions"></lightning-button>
           <p class="slds-var-p-horizontal_small">
-              <c-boat-search-form class="slds-align_absolute-center">
+              <c-boat-search-form class="slds-align_absolute-center" onsearch={searchBoats}>
               </c-boat-search-form>
             <!-- boatSearchForm component goes here -->
           </p>
@@ -15,11 +15,12 @@
       <!-- Bottom -->
       <lightning-layout-item size="12" class="slds-p-top_small slds-is-relative">
         <!-- Spinner goes here -->
-        <template if:false={isLoading}>
+        <template if:true={isLoading}>
         <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
         </template>
         <!-- boatSearchResults goes here -->
-        <c-boat-search-results></c-boat-search-results>
+        <c-boat-search-results onloading={handleLoading} ondoneloading={handleDoneLoading}
+        ></c-boat-search-results>
         <!-- onloading={handleLoading} ondoneloading={handleDoneLoading} -->
       </lightning-layout-item>
     </lightning-layout>
