@@ -26,7 +26,7 @@
           <div class="slds-scrollable_y">
             <lightning-datatable
             key-field="Id"
-            data={boats}
+            data={boats.data}
             columns={columns}
             onsave={handleSave}
             draft-values={draftValues} hide-checkbox-column>

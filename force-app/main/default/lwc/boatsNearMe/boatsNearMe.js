@@ -87,6 +87,7 @@ export default class BoatsNearMe extends LightningElement {
             }
         });
         this.mapMarkers = newMarkers;
+        //this.isLoading = false;
      }
 
 }
